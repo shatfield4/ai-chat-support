@@ -26,7 +26,7 @@ function App() {
   const handleSubmit = async (e:any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/api/ai", {
+    const response = await fetch("http://ai-chat-support/api/ai", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -95,9 +95,9 @@ function App() {
 
       {/* <div dangerouslySetInnerHTML={{__html: htmlString}} /> */}
       <div className="mt-10">
-        <button className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 mx-5" onClick={handleLogin}>
+        {/* <button className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 mx-5" onClick={handleLogin}>
           Login with Gmail
-        </button>
+        </button> */}
       </div>
     </div>
   );
