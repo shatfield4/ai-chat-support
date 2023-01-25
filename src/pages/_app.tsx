@@ -26,7 +26,7 @@ function App() {
   const handleSubmit = async (e:any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch("https://ai-chat-support/api/ai", {
+    const response = await fetch("https://ai-chat-support.vercel.app/api/ai", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
