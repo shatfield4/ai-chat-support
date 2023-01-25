@@ -13,6 +13,7 @@ const api = async (req: NextApiRequest, res: NextApiResponse) => {
       const maxTokens = 300;
       const temperature = 0.9;
 
+
       let responseTypePrompt = `respond in a tone of voice of ${responseType}`;
       let fullPrompt = `${responseTypePrompt} and ${trainingRules} write the response as html and do not use /n for line breaks, use <br>: from:${fromEmail}: do not continue the sentence, this is the full email: ${prompt}`;
 
