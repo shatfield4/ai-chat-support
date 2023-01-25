@@ -1,7 +1,7 @@
 import OpenAI from "openai-api";
 import { NextApiRequest, NextApiResponse } from 'next';
 
-require("dotenv").config();
+// require("dotenv").config();
 // instantiate OpenAI API wrapper
 const openai = new OpenAI(process.env.OPENAI_API_KEY!);
 

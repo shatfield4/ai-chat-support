@@ -13,7 +13,7 @@ function App() {
   const dropdownItems = ['Gen-z', 'Formal', 'Natural Human with slang', 'Natural Human without slang', 'Robot response'];
 
   const handleLogin = async () => {
-    axios.get('http://localhost:3000/auth')
+    axios.get('/auth')
         .then(response => {
             console.log(response);
         })
@@ -26,7 +26,7 @@ function App() {
   const handleSubmit = async (e:any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch("https://ai-chat-support.vercel.app/api/ai", {
+    const response = await fetch('/api/ai', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
