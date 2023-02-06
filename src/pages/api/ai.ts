@@ -1,5 +1,10 @@
 // NOT USED ANYMORE, REPLACED BY EXPRESS SERVER inside of server/index.js
+import { NextApiRequest, NextApiResponse } from 'next';
 
+const api = async (req: NextApiRequest, res: NextApiResponse) => {
+  res.statusCode = 200;
+  res.json({ name: 'John Doe' });
+};
 
 // import OpenAI from "openai-api";
 // import { NextApiRequest, NextApiResponse } from 'next';
