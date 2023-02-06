@@ -15,7 +15,7 @@ function App() {
   const dropdownItems = ['Gen-z', 'Formal', 'Natural Human with slang', 'Natural Human without slang', 'Robot response'];
 
   const handleLogin = async () => {
-    axios.get('/auth')
+    axios.get('http://localhost:3001/auth')
         .then(response => {
             console.log(response);
         })
@@ -28,12 +28,12 @@ function App() {
   const handleSubmit = async (e:any) => {
     setIsLoading(true);
     e.preventDefault();
-    const response = await fetch('/api/ai', {
+    const response = await fetch(`http://localhost:3001/ai`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         prompt: prompt,
         fromEmail: fromEmail,
         responseType: responseType,
@@ -91,7 +91,7 @@ function App() {
           <label className="block text-gray-700 font-medium mb-2" htmlFor="response-type">
             Response Tone
           </label>
-          <select 
+          <select
             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             id="response-type"
             value={responseType}
@@ -122,9 +122,8 @@ function App() {
         <p className="text-gray-700" dangerouslySetInnerHTML={{__html: response}} />
       </div>
       <div className="mt-10">
-        {/* <button className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 mx-5" onClick={handleLogin}>
-          Login with Gmail
-        </button> */}
+        <p className="text-gray-700 mb-4 py-2 px-4">Connect to Gmail to begin watching inbox</p>
+        <a href={`${process.env.SERVER_URL}:${process.env.SERVER_PORT}/auth`} className="bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-indigo-600 mx-5">Login with Gmail</a>
       </div>
     </div>
   );
