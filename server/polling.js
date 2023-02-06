@@ -53,7 +53,7 @@ cron.schedule("*/15 * * * * *", async () => {
     const gmail = google.gmail({version: 'v1', auth: oAuth2Client});
     const result = await gmail.users.messages.list({
       userId: 'me',
-      maxResults: 3
+      maxResults: 50
     });
     const messages = result.data.messages;
 
@@ -94,7 +94,7 @@ cron.schedule("*/15 * * * * *", async () => {
     if(from === 'PocketProjectr Support <info@pocketprojectr.com>') {
         console.log('Sending email to GPT-3 API...');
         try {
-            const response = await axios.post('http://localhost:3001/api', {
+            const response = await axios.post('http://localhost:3001/ai', {
                 prompt: `Subject: ${subject}\nBody: ${body}`,
                 fromEmail: from,
                 responseType: 'gen-z',
